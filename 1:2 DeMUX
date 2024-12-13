@@ -1,0 +1,7 @@
+module Demux_1to2(D, S, Y0, Y1);
+    input D;
+    input S;
+    output Y0, Y1;
+
+    assign {Y1, Y0} = D << S;
+endmodule
