@@ -1,0 +1,10 @@
+module flip_flop(clk, d, q, qbar);
+    input clk, d;
+    output q, qbar;
+    reg q, qbar;
+
+    always @(posedge clk) begin
+        q <= d;
+        qbar <= ~d;
+    end
+endmodule
