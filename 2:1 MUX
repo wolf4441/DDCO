@@ -1,0 +1,13 @@
+module mux_21(I, sel, Y);
+    input [1:0] I;
+    input sel;
+    output reg Y;
+
+    always @(*) begin
+        case (sel)
+            1'b0: Y = I[0];
+            1'b1: Y = I[1];
+            default: Y = 1'b0;
+        endcase
+    end
+endmodule
