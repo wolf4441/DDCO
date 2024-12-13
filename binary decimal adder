@@ -1,0 +1,23 @@
+module bcd_adder(a, b, carry_in, sum, carry);
+    // Declare the inputs and outputs of the module with their sizes.
+    input [3:0] a, b;
+    input carry_in;
+    output [3:0] sum;
+    output carry;
+
+    reg [4:0] sum_temp;
+    reg [3:0] sum;
+    reg carry;
+
+    always @(a, b, carry_in) begin
+        sum_temp = a + b + carry_in;
+        if (sum_temp > 9) begin
+            sum_temp = sum_temp + 6; // Add 6 if the result is more than 9
+            carry = 1;              // Set the carry output
+            sum = sum_temp[3:0];
+        end else begin
+            carry = 0;
+            sum = sum_temp[3:0];
+        end
+    end
+endmodule
